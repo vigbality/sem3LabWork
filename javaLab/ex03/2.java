@@ -1,5 +1,5 @@
 import java.util.Scanner;
-abstract class Shape{
+class Shape{
 	protected String color="red";
 	public Shape(){}
 	public Shape(String colorp){
