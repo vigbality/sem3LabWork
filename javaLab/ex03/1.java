@@ -32,6 +32,9 @@ class Person{
 		data=so.next().charAt(0);
 		return data;
 	} 
+	public void display(){
+		System.out.println(aadhar+" "+name+" "+address+" "+gender);
+	}
 }
 
 class Student extends Person{
@@ -70,6 +73,10 @@ class Student extends Person{
 	public float calGPA(){
 		float data=totalmark/10;
 		return data;
+	}
+	public void display(){
+		super.display();
+		System.out.println(year+" "+totalmark);
 	}	
 	
 }
@@ -108,11 +115,26 @@ class Faculty extends Person{
 		ded=basicpay*(0.085+0.08);
 		return gross-ded;
 	}
+	public void display(){
+		super.display();
+		System.out.println(designation+" "+department+" "+basicpay);
+	}
 }
 
 class TestInheritance{
 	public static void main(String[] args){
-		Person perObj=new Person(12345,"vignesh","avadi",'m');
-		System.out.println(perObj.getGender());
+		Student stuObj=new Student(12345,"vignesh","avadi",'m',2002,100);
+		Faculty facObj=new Faculty(12346,"balaji","kalavakam",'m',"HOD","cse",80000);
+		System.out.println("BEfore");
+		stuObj.display();
+		stuObj.setYear(stuObj.getYear());
+		System.out.println("AFter");
+		stuObj.display();
+		System.out.println("BEfore");
+		facObj.display();
+		facObj.setDesig(facObj.getDesig());
+		System.out.println("after");
+		facObj.display();
+		
 	}
 }
