@@ -13,27 +13,19 @@ class Person{
 		gender=genderp;
 	}
 	public String getName(){
-		String data;
-		System.out.println("Enter name: ");
-		data=so.nextLine();
-		return data;
+		return name;
 	}
 	public String getAddress(){
-		String data;
-		System.out.println("Enter address: ");
-		data=so.nextLine();
-		return data;
+		return address;
 	}
 	public void setAddress(String addressp){
 		address=addressp;
 	}
 	public char getGender(){
-		char data;
-		data=so.next().charAt(0);
-		return data;
+		return gender;
 	} 
 	public void display(){
-		System.out.println(aadhar+" "+name+" "+address+" "+gender);
+		System.out.print(aadhar+" "+name+" "+address+" "+gender);
 	}
 }
 
@@ -47,25 +39,16 @@ class Student extends Person{
 		totalmark=totalp;
 	}
 	public String getProgram(){
-		String data;
-		System.out.println("Enter program title: ");
-		data=so.nextLine();
-		return data;
+		return program;
 	}
 	public int getYear(){
-		int data;
-		System.out.println("Enter year: ");
-		data=so.nextInt();
-		return data;
+		return year;
 	}
 	public void setYear(int yearp){
 		year=yearp;
 	}
 	public float getTotal(){
-		float data;
-		System.out.println("Enter total: ");
-		data=so.nextFloat();
-		return data;
+		return totalmark;
 	}
 	public void setTotal(float totalp){
 		totalmark=totalp;
@@ -76,7 +59,7 @@ class Student extends Person{
 	}
 	public void display(){
 		super.display();
-		System.out.println(year+" "+totalmark);
+		System.out.println(" "+year+" "+totalmark);
 	}	
 	
 }
@@ -92,10 +75,7 @@ class Faculty extends Person{
 		basicpay=pay;
 	}
 	public String getDesig(){
-		String data;
-		System.out.println("Enter designation: ");
-		data=so.nextLine();
-		return data;
+		return designation;
 	}
 	public void setDesig(String desig){
 		designation=desig;
@@ -104,10 +84,7 @@ class Faculty extends Person{
 		basicpay=pay;
 	}
 	public float getBasic(){
-		float data;
-		System.out.println("Enter basicPay: ");
-		data=so.nextFloat();
-		return data;
+		return basicpay;
 	}
 	public double calSalary(){
 		double gross,ded;
@@ -117,7 +94,7 @@ class Faculty extends Person{
 	}
 	public void display(){
 		super.display();
-		System.out.println(designation+" "+department+" "+basicpay);
+		System.out.println(" "+designation+" "+department+" "+basicpay);
 	}
 }
 
@@ -125,16 +102,35 @@ class TestInheritance{
 	public static void main(String[] args){
 		Student stuObj=new Student(12345,"vignesh","avadi",'m',2002,100);
 		Faculty facObj=new Faculty(12346,"balaji","kalavakam",'m',"HOD","cse",80000);
-		System.out.println("BEfore");
+		System.out.println("\n************Functions from Person class using student object*************");
+		System.out.println("getName: "+stuObj.getName());
+		System.out.println("getAddress: "+stuObj.getAddress());
+		System.out.println("**set Address to kalavakam**");
+		stuObj.setAddress("kalavakam");
+		System.out.println("getAddress: "+stuObj.getAddress());
+		System.out.println("\n\n************Student object*************");
+		System.out.print("Display function: ");
 		stuObj.display();
-		stuObj.setYear(stuObj.getYear());
-		System.out.println("AFter");
-		stuObj.display();
-		System.out.println("BEfore");
+		System.out.println("getYear: "+stuObj.getYear());		
+		System.out.println("**Set year to 2004**");
+		stuObj.setYear(2004);
+		System.out.println("getYear: "+stuObj.getYear());
+		System.out.println("getTotal: "+stuObj.getTotal());
+		System.out.println("**set total to 80**");
+		stuObj.setTotal(80);
+		System.out.println("getTotal: "+stuObj.getTotal());
+		System.out.println("calGPA: "+stuObj.calGPA());
+		System.out.println("\n\n************Faculty object*************");
+		System.out.print("Display function: ");
 		facObj.display();
-		facObj.setDesig(facObj.getDesig());
-		System.out.println("after");
-		facObj.display();
-		
+		System.out.println("getDesig: "+facObj.getDesig());
+		System.out.println("**set desig to Principal**");
+		facObj.setDesig("Principal");
+		System.out.println("getDesig: "+facObj.getDesig());
+		System.out.println("getBasic: "+facObj.getBasic());
+		System.out.println("**set Basic to 1,00,000**");
+		facObj.setBasic(100000);
+		System.out.println("getBasic: "+facObj.getBasic());
+		System.out.println("calSalary: "+facObj.calSalary());
 	}
 }
