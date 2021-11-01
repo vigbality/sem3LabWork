@@ -2,18 +2,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void swap(struct listAdt *head,int k){
-	struct listAdt *temp1, *temp2, *ptr=head;
-	int i=1;
-	while(ptr!=NULL){
-		if(i==k){
-			temp1=ptr;
-		}
-		if(ptr->next=NULL){}
-	}
-}
-
-
 int main(){
 	struct listAdt *header=NULL;
 	header=insertFront(header,'F');
@@ -23,4 +11,13 @@ int main(){
 	header=insertFront(header,'B');
 	header=insertFront(header,'A');
 	display(header,0);
+	insertMiddle(header,'E','+');
+	insertMiddle(header,'F','G');
+	display(header,0);
+	deleteItem(header,'+');
+	display(header,0);
+	header=insertEnd(header,'C');
+	display(header,0);
+	printf("count of C: %d\n",searchItem(header,'C'));
+	printf("count of Z: %d\n",searchItem(header,'Z'));
 }
