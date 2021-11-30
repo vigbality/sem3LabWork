@@ -1,6 +1,5 @@
 #include "adt.h"
 
-
 int height(struct avl *t){
 	if(t==NULL) return 0;
 	return t->height;
@@ -16,7 +15,6 @@ int max(int a, int b){
 	else return b;
 }
 
-
 struct avl *SRwithLeft(struct avl *k2){
 	struct avl *k1;
 	k1=k2->left;
@@ -26,7 +24,6 @@ struct avl *SRwithLeft(struct avl *k2){
 	k1->height= 1 + max(height(k1->left),height(k1->right));
 	return k1;	
 }
-
 
 struct avl *SRwithRight(struct avl *k2){
 	struct avl *k1;
@@ -38,8 +35,6 @@ struct avl *SRwithRight(struct avl *k2){
 	return k1;	
 }
 
-
-
 struct avl *DRwithLeft(struct avl *k3){
 	k3->left=SRwithRight(k3->left);
 	return SRwithLeft(k3);	
@@ -49,9 +44,6 @@ struct avl *DRwithRight(struct avl *k3){
 	k3->right=SRwithLeft(k3->right);
 	return SRwithRight(k3);	
 }
-
-
-
 
 struct avl *insertNode(struct avl *t, int x){
 	if(t==NULL){
@@ -73,46 +65,11 @@ struct avl *insertNode(struct avl *t, int x){
 	return t;
 }
 
-
-
-
-
-
-
-/*
-struct bst *deleteNode(struct bst *t, int x){
-	struct bst *temp;
-	if(x<t->data) t->left=deleteNode(t->left, x);
-	else if(x>t->data) t->right =deleteNode(t->right, x);
-	else if(t->left && t->right){
-		temp=findMin(t->right);
-		t->data=temp->data;
-		t->right=deleteNode(t->right,temp->data);
-	}
-	else{
-		if(t->right==NULL) t=t->left;
-		else if(t->left==NULL) t=t->right;
-		else t=NULL;
-	}
-	free(temp);temp=NULL;
-	return t;
-}
-*/
-
-
 void inorder(struct avl *t){
 	if(t->left!=NULL) inorder(t->left);
 	printf("%d ",t->data);
 	if(t->right!=NULL) inorder(t->right);
 }
-
-/*
-void inorderArr(struct bst *t, int *arr, int *i){
-	if(t->left!=NULL) inorderArr(t->left,arr,i);
-	arr[(*i)++]=t->data;
-	if(t->right!=NULL) inorderArr(t->right,arr,i);
-}
-*/
 
 void printLevel(struct avl *t, int i){
 	if(i==0) printf("%d ",t->data);

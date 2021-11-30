@@ -9,9 +9,7 @@ int main(){
 	t=insertNode(t,4);
 	t=insertNode(t,45);
 	t=insertNode(t,54);
+	printf("\n*************\n");
 	inorder(t); printf("\n");
 	levelorder(t);
-	//printf("Min: %d\n", findMin(t)->data);
-	//if(find(t,13)) printf("13 is FOUND\n"); else printf("NOT FOUND\n");
-	//if(find(t,3)) printf("3 is FOUND\n"); else printf("NOT FOUND\n");		
 }

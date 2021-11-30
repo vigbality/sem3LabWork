@@ -1,7 +1,6 @@
 #include"adt.h"
 void init(struct heap *h, int size){
     h->size=size;
-    h->arr[0]=-999;
     h->curr=0;
 }
 
