@@ -1,7 +1,7 @@
 import java.util.*;
-class maximum<T extends Comparable <T>>{
+class max<T extends Comparable<T>>{
   T[] arr;
-  maximum(T[] arr){
+  max(T[] arr){
     this.arr = arr;
   }
 
@@ -16,7 +16,7 @@ class maximum<T extends Comparable <T>>{
   }
 }
 
-class Q1{
+public class Q1{
   public static void main(String[] args){
     Scanner sc = new Scanner(System.in);
     System.out.println("Character Array");
@@ -27,11 +27,11 @@ class Q1{
       System.out.print("\nElement " + (i + 1) + ": ");
       carr[i] = sc.next().charAt(0);
     }
-    maximum<Character> m1 = new maximum<Character>(carr);
-    System.out.println("\nThe largest element: " + m1.<Character>compare());
+    max<Character> m1 = new max<Character>(carr);
+    System.out.println("\nThe largest element: " + m1.compare());
 
 
-    System.out.println("Integer Array");
+    System.out.println("\n\nInteger Array");
     System.out.print("\nSize of array: ");
     size = sc.nextInt();
     Integer[] iarr = new Integer[size];
@@ -39,8 +39,9 @@ class Q1{
       System.out.print("\nElement " + (i + 1) + ": ");
       iarr[i] = sc.nextInt();
     }
-    maximum<Integer> m2 = new maximum<Integer>(iarr);
-    System.out.println("\nThe largest element: " + m2.<Integer>compare());
+    max<Integer> m2 = new max<Integer>(iarr);
+    System.out.println("\nThe largest element: " + m2.compare());
+    sc.close();
   }
 }
 
