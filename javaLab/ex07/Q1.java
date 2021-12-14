@@ -20,26 +20,26 @@ public class Q1{
   public static void main(String[] args){
     Scanner sc = new Scanner(System.in);
     System.out.println("Character Array");
-    System.out.print("Size of array: ");
+    System.out.print("Enter Size of array: ");
     int size = sc.nextInt();
-    Character[] carr = new Character[size];
+    Character[] charArr = new Character[size];
     for(int i = 0; i < size; i++){
       System.out.print("\nElement " + (i + 1) + ": ");
-      carr[i] = sc.next().charAt(0);
+      charArr[i] = sc.next().charAt(0);
     }
-    max<Character> m1 = new max<Character>(carr);
+    max<Character> m1 = new max<Character>(charArr);
     System.out.println("\nThe largest element: " + m1.compare());
 
 
     System.out.println("\n\nInteger Array");
-    System.out.print("\nSize of array: ");
+    System.out.print("\nEnter Size of array: ");
     size = sc.nextInt();
-    Integer[] iarr = new Integer[size];
+    Integer[] intArr = new Integer[size];
     for(int i = 0; i < size; i++){
       System.out.print("\nElement " + (i + 1) + ": ");
-      iarr[i] = sc.nextInt();
+      intArr[i] = sc.nextInt();
     }
-    max<Integer> m2 = new max<Integer>(iarr);
+    max<Integer> m2 = new max<Integer>(intArr);
     System.out.println("\nThe largest element: " + m2.compare());
     sc.close();
   }
