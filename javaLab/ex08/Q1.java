@@ -1,16 +1,13 @@
 import java.util.*;
 
-class Driver
-{
-    public static void main(String[] args) 
-    {
+class Q1{
+    public static void main(String[] args) {
         ArrayList<String> l= new ArrayList();
         Scanner sc= new Scanner( System.in);
-        System.out.print("Enter size of ArrayList:");
+        System.out.print("Size of ArrayList:");
         int n1=sc.nextInt();
         sc.nextLine();
-        for (int i=0; i<n1; ++i)
-        {
+        for (int i=0; i<n1; ++i){
         	System.out.print("Enter element " + (i+1)+":");
         	l.add(sc.nextLine());
         }
@@ -19,9 +16,9 @@ class Driver
         String s= sc.nextLine();
         l.add(s);
         System.out.println("The ArrayList is " + l);
-        System.out.print("Enter the string to be inserted at specific position:");
+        System.out.print("Enter the string to be inserted:");
         s=sc.nextLine();
-        System.out.print("Enter the position of insertion:");
+        System.out.print("Enter the position where to be inserted:");
         int pos= sc.nextInt();
         sc.nextLine();
         l.add(pos-1, s);
@@ -29,29 +26,25 @@ class Driver
          
         System.out.print("Enter the string to be searched:");
         s=sc.nextLine();
-        System.out.println("The position of the string is "+ (l.indexOf(s)+1));
+        System.out.println("Position of the string: "+ (l.indexOf(s)+1));
         
         System.out.println("The ArrayList is " + l);
         
         System.out.print("Enter the letter:");
         char c= sc.next().charAt(0);
         sc.nextLine();
-        System.out.print("The strings with the given letter:");
-        for (String v: l)
-        {
+        System.out.print("Strings with the given letter: ");
+        for (String v: l){
         	if(v.charAt(0)==c)
         		System.out.print(v+" ");
-        		
         }
         
         System.out.print("\nEnter the substring:");
         s=sc.nextLine();
-        System.out.print("The strings with the given substring:");
-        for (String v: l)
-        {
+        System.out.print("Strings with the given substring:");
+        for (String v: l){
         	if(v.indexOf(s)!=-1)
-        		System.out.print(v+" ");
-        		
+        		System.out.print(v+" ");	
         }
         
         Collections.sort(l);

@@ -1,20 +1,20 @@
 #include"impl.h"
-int binS2occ(int *arr, int l, int r, int x){
+int binS2occ(int *arr, int l, int r, int x, int k){
     if(r >= l){
         int mid=l+(r-l)/2;
         if(arr[mid]==x){
-            if(arr[mid-1]==x) return binS2occ(arr, l, mid - 1, x);
-            if(arr[mid+1]==x) return mid+1;
+            if(arr[mid-1]==x) return binS2occ(arr, l, mid - 1, x,k);
+            if(arr[mid+k-1]==x) return mid+k-1;
             else return -1;
         }
-        else if(arr[mid] > x) return binS2occ(arr, l, mid - 1, x);
-        else return binS2occ(arr, mid + 1, r, x);
+        else if(arr[mid] > x) return binS2occ(arr, l, mid - 1, x,k);
+        else return binS2occ(arr, mid + 1, r, x,k);
     }
     return -1;
 }
 
-int bSearch2occ(struct nadt *n, int key){
-    return binS2occ(returnSorted(n->arr,n->size), 0, n->size-1, key);
+int bSearch2occ(struct nadt *n, int key,int k){
+    return binS2occ(returnSorted(n->arr,n->size), 0, n->size-1, key,k);
 }
 
 void findFreq(struct nadt *n, int key){
@@ -52,12 +52,13 @@ void pairDiff(struct nadt *n, int d){
 
 
 int main(){
-    int arr[50]={4,7,3,2,1,9,8,7,3,4};
+    // int arr[50]={4,7,3,2,1,9,8,7,3,4};
+    int arr[50]={1,3,5,7,9,9,9,9,9,9,9,10,10,13};
     struct nadt n;
-    init(&n, 10);
+    init(&n, 14);
     insertElements(&n,arr);
     display(&n);
-    printf("found at %d \n",bSearch2occ(&n,7));
+    printf("found at %d \n",bSearch2occ(&n,13,2));
     // pairDiff(&n,3);
     
 }

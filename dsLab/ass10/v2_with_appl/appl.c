@@ -1,7 +1,7 @@
 #include"impl.h"
 
 void pathExists(struct cityAdt *g,int s, int d){
-    int *arr=DFSreturnsVisited(g,s);
+    int *arr=BFSreturnsVisited(g,s);
     if(arr[d]==1) printf("Path exists");
     else printf("Path not exists");
 }
@@ -37,8 +37,10 @@ int main(){
     // arr=DFSreturnsVisited(&g,0);
     // printf("\n\n");
     // for(int i=0;i<g.size;i++) printf(" /%d/ ",arr[i]);
-    pathExists(&g,3,2);
-    pathExists(&g,2,1);
-    findConnected(&g);
+    display(&g);
+    pathExists(&g,0,4);
+    printf("\n");
+    pathExists(&g,0,3);
+    // findConnected(&g);
 
 }

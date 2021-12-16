@@ -1,55 +1,45 @@
 import java.util.*;
 
-class Driver
-{
-	public static void main( String args[])
-	{
+class Q3{
+	public static void main( String args[]){
 		Scanner sc= new Scanner( System.in);
 		int ele;
 		LinkedList<Integer> l= new LinkedList<Integer> ();
 		
-		System.out.println("First let us populate the doubly linked list with a few starting values.");
-		System.out.print("Enter the number of elements:");
+		System.out.print("Enter the number of elements: ");
 		int n=sc.nextInt();
-		System.out.print("Enter the elements:");
-		for (int i=0; i<n; ++i)
-		{
+		System.out.print("Enter the elements: ");
+		for (int i=0; i<n; ++i){
 			l.add(sc.nextInt());
 		}
 		
 		
-		while(true)
-		{
+		while(true){
 			char ch= menu(sc);
-			if(ch=='a')
-			{
-				System.out.print("Enter the element:");
+			if(ch=='a'){
+				System.out.print("Enter the element: ");
 				ele= sc.nextInt();
 				l.addFirst(ele);
 				l.addLast(ele);
 			}
 			
-			else if(ch=='b')
-			{
+			else if(ch=='b'){
 				l.pollFirst(); l.pollLast();
 			}	
 			
-			else if(ch=='c')
-			{
+			else if(ch=='c'){
 				System.out.print("Enter element:");
 				ele= sc.nextInt();
 				System.out.print("Enter the position:");
 				int pos= sc.nextInt();
 				l.add(pos-1,ele);
 			}
-			else if(ch=='d')
-			{
+			else if(ch=='d'){
 				System.out.print("Enter the element to be deleted:");
 				ele= sc.nextInt();
 				l.remove(l.indexOf(ele));
 			}
-			else if( ch=='e')
-			{
+			else if( ch=='e'){
 				System.out.print("Enter the element to be searched for:");
 				ele= sc.nextInt();
 				if (l.indexOf(ele)>-1)
@@ -57,27 +47,23 @@ class Driver
 				else
 					System.out.println("Element not found!");
 			}
-			else if( ch=='f')
-			{
+			else if( ch=='f'){
 				System.out.println("The list in forward direction is "+l);
 				Collections.reverse(l);
 				System.out.println("The list in backward direction is "+ l);
 				Collections.reverse(l);
 			}
-			else if( ch=='g')
-			{
+			else if( ch=='g'){
 				Collections.sort(l);
 			}
-			else if( ch=='h')
-			{
+			else if( ch=='h'){
 				System.out.print("Enter element to be replaced:");
 				ele= sc.nextInt();
 				LinkedList <Integer> l2= new LinkedList<Integer> ();
 				System.out.print("Enter the number of elements of the new list:");
 				n=sc.nextInt();
 				System.out.print("Enter the elements:");
-				for (int i=0; i<n; ++i)
-				{
+				for (int i=0; i<n; ++i){
 					l2.add(sc.nextInt());
 				}
 				
@@ -91,17 +77,14 @@ class Driver
 				l.addAll(l1);
 			}
 			
-			else if( ch=='i')
-			{
+			else if( ch=='i'){
 				Set set= new HashSet ();
 				set.addAll(l);
 				l.clear();
 				l.addAll(set);
 			}
 			
-			else
-			{
-				System.out.println("Bye!");
+			else{
 				break;
 			}
 			
@@ -114,11 +97,10 @@ class Driver
 		
 	}
 	
-	public static char menu(Scanner sc)
-	{
-		System.out.println("\nMENU:\n\na. Insert element on both sides\t\t\t\tb. Delete element on both sides\nc. Insert an element at a particular position\t\td. Delete a particular element\ne. Search for a particular element\t\t\tf. Display list in forward order and backward order\ng. Sort the elements in LinkedList\t\t\th. Replace one element in the list with another list\ni. Remove duplicate elements\t\t\t\tj. Exit program");
+	public static char menu(Scanner sc){
+		System.out.println("\nMENU:\n\n[a] Insert element on both sides\n[b] Delete element on both sides\n[c] Insert an element\n[d] Delete element\n[e] Search element\n[f] Display list in forward and backward order\n[g] Sort the elements\n[h] Replace element\n[i] Remove duplicate elements\n[j] Exit");
 		
-		System.out.print("Enter your choice (character):");
+		System.out.print("your choice: ");
 		return( sc.next().charAt(0));
 	}
 }
