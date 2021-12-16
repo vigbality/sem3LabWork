@@ -4,5 +4,6 @@ int main(){
     create(&c);
     display(&c);
     floyd(&c);
-    displayPath(&c,0,2);
+    printf("\n\n\ngh\n");
+    displayPath(&c,3,1);
 }

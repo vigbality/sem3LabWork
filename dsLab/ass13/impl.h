@@ -37,7 +37,7 @@ void floyd(struct city *c){
                 }
             }
         }
-        printf("\nK=%d\n\n",k);
+        printf("\nK=%d\n\n",k+1);
         display(c);
     }
 
@@ -46,10 +46,10 @@ void floyd(struct city *c){
 
 void displayPath(struct city *c, int s, int d){
     // printf("%d ",s);
-    if(c->pred[s][d]==0) printf("%d ",d);
+    if(c->pred[s-1][d-1]==0) printf("%d ",d);
     else{
-        displayPath(c, s, c->pred[s][d]);
-        displayPath(c, c->pred[s][d], d);
+        displayPath(c, s, c->pred[s-1][d-1]);
+        displayPath(c, c->pred[s-1][d-1], d);
     }
 
 }
